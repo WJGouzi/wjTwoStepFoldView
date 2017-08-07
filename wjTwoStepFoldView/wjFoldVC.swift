@@ -12,7 +12,7 @@ class wjFoldVC: UITableViewController {
 
     /// 声明一些属性
     // 存放的数据源
-    var dateFileArray : NSMutableArray!
+    var wjFileArray : NSMutableArray!
     // 存放文件类型的数据源
     var fileCataglogueArray : NSMutableArray!
     // 单个文件数据源
@@ -32,13 +32,13 @@ class wjFoldVC: UITableViewController {
     }
     
     func wjCreatData() {
-        self.dateFileArray = NSMutableArray()
+        self.wjFileArray = NSMutableArray()
         self.fileCataglogueArray = NSMutableArray()
         self.singleFileArray = NSMutableArray()
         
-        let a = 1, i = 1, j = 0
+        let i = 1, j = 0
         
-        for _ in a...5 {
+        for _ in 1...5 {
             for i in i..<5 {
                 let marr = NSMutableArray()
                 for j in j..<5 {
@@ -48,7 +48,7 @@ class wjFoldVC: UITableViewController {
                 // 存放折叠的状态
                 self.fileCataglogueArray.add(true)
             }
-            self.dateFileArray.add(true)
+            self.wjFileArray.add(true)
         }
         print(self.singleFileArray)
     }
@@ -66,13 +66,13 @@ class wjFoldVC: UITableViewController {
 extension wjFoldVC {
     // sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.dateFileArray.count
+        return self.wjFileArray.count
     }
     
     // raws
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.fileCataglogueArray[section] as! Bool == true {
-            if self.dateFileArray[section] as! Bool == true {
+            if self.wjFileArray[section] as! Bool == true {
                 return 0
             }
             let sectionCount = self.fileCataglogueArray[section]
